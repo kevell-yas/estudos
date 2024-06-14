@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <form method="post" action="api/posturl">
+<!-- Existem vários tipos de formularios (precisa definir um atributo via METHOD para o formulario, como no exemplo acima) e os mais conhecidos são o GET e o POST
+ 1 - GET: vai enviar todas as informacoes do formulario no cabecalho da URL - não é seguro, pois tas informacoes ficam visiveis atraves da URL e isso deixa exposto dados sensíveis. Existe tambem o fator tamanho, pois o formulario pode superar o limite de caracteres da URL;
+ 2 - POST: vai empacotar todos os dados e colocar no body da requisicao HTTP -->
+            <div>
+                <label for="idtexto">Texto</label>
+                <input type="text" id="idtexto" name="idtexto" /> 
+<!-- é importante criar um ID, pois vai tornar a busca via ID facilitada (no caso do javascript). mesma coisa de criar um name -->
+            </div>
+            <div> 
+                <label for="idpassword">Senha</label>
+                <input type="password" id="idpassword" name="idpassword"/>
+<!-- o impute do tipo password faz com que os dados imputados no campo da senha, saiam criptografados -->
+            </div>
+            <div> 
+                <label for="iddate">Data</label>
+                <input type="date" id="iddate" name="iddate"/>
+            </div>
+            <div>
+                <label for="idfile">Arquivo</label>
+                <input type="file" id="idfile" name="idfile"/>
+<!-- apenas criar uma div para imputar um arquivo, não vai fazer com que esse arquivo suba para o site. precisa ser programado (via javascript, por exemplo), pois o html é apenas a casca do site, ele não roda as acoes -->
+            </div>
+            <div>
+                <label for="idemail">Email</label>
+                <input type="email" id="idemail" name="idemail"/>
+            </div>
+            <div>
+<!-- pode-se selecionar varias checkbox-->
+                <label for="idcheck1">Check 1</label>
+                <input type="checkbox" id="idcheck1" name="idcheck" value="Check 1"/>
+                <label for="idcheck2">Check 2</label>
+                <input type="checkbox" id="idcheck2" name="idcheck" value="Check 2"/>
+                <label for="idcheck3">Check 3</label>
+                <input type="checkbox" id="idcheck3" name="idcheck" value="Check 3"/>
+            </div>
+            <div>
+<!-- radio button - pode-se selecionar apenas um item, contanto que todos utilizem o mesmo name-->
+                <label for="idradio1">Radio 1</label>
+                <input type="radio" id="idradio1" name="idradio" value="Radio 1"/>
+                <label for="idradio2">Radio 2</label>
+                <input type="radio" id="idradio2" name="idradio" value="Radio 2"/>
+                <label for="idradio3">Radio 3</label>
+                <input type="radio" id="idradio3" name="idradio" value="Radio 3"/>
+            </div>
+            <div>
+<!-- utilizado para se escrever um texto grande-->
+    <!-- no formato que está, o tamanho pode ser modificado no próprio site, porém, via CSS, pode-se travar o tamanho ou alterá-lo, etc-->
+                <label for="idtextarea">Caixa de Texto</label>
+                <textarea id="idtexto" name="idtexto" rows="5"></textarea>
+<!-- ROWS é a quantidade de linhas que delimita o tamanho da caixa, passando da determinada quantidade linhas, vai gerar um scroll. COLUMS vai determinar a largura. superando a quantidade de colunas, o texto é quebrado-->
+            </div>
+            <div>
+                <select name="selecao">
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="js">JavaScript</option>
+<!-- caixa de selecao-->
+            </div>
+            <div>
+                <input type="reset" value="Limpar"/>
+<!-- vai limpar todos os campos preenchidos-->
+                <input type="button" onclick="alert('Oi!')" value="Botão"/>
+<!-- vai criar uma caixa de alerta ao selecionar o Botão-->
+                <input type="submit" value="Enviar Form"/>
+<!-- ao submeter o formulario, o site vai enviar essa informação ou para uma funcao javascript ou para redirecionar a um servidor-->
+ <!-- existem duas formas de fazer com que a informacao seja enviada-->
+  <!-- 1 - redirecionar para um servidor 
+   action="api/posturl" - exemplo
+   atraves de uma ACTION (que fica dentro da tag FORMS) informando para onde sera enviado -->
+  <!-- 2 - Funcao javascript
+   <form onsubmit="return MinhaAcaoJS(this)">
+    precisa ser feito tanto no formulario quanto na funcao javascript (que pode validar os campos, senha, etc.)
+    -->
+            </div>
+        </form>
+    </main>
+</body>
+</html>
